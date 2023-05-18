@@ -12,6 +12,38 @@ main#matches {
         flex-direction: column;
         gap: 1em;
 
+        .empty {
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 0.5em;
+            
+            span {
+                color: gray;
+            }
+        }
+
+        .loader {
+            // outline: 2px solid red;
+            width: 100%;
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pageTitle {
+            color: var(--text-color);
+            font-weight: bold;
+            font-size: 2rem;
+        }
+
+        .matchesDescription {
+            color: var(--text-color);
+        }
+
         .school {
             display: flex;
             align-items: center;

@@ -11,6 +11,12 @@ main#filter {
         flex-direction: column;
         gap: 1.5em;
 
+        .pageTitle {
+            color: var(--text-color);
+            font-weight: bold;
+            font-size: 2rem;
+        }
+
         .category {
             // outline: 2px solid red;
             display: flex;

@@ -6,7 +6,7 @@ function Home() {
   const [searchQuery, setSearchQuery] = useState('')
   
   return (
-    <main id="home">
+  <main id="home">
       <div className="container">
           <div id="brand">
               <div id="logo">

@@ -8,6 +8,7 @@ function Filter() {
         <main id="filter">
             <div className="container">
                 <div id="filter_container">
+                <div className='pageTitle'>Filter</div>
                 <div className="category">
                     <div className="category_title">Level</div>
                     <div className="category_options">
