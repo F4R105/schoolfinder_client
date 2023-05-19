@@ -10,6 +10,7 @@ main#school {
         display: flex;
         flex-direction: column;
         gap: 1.5em;
+        // outline: 2px solid red;
 
         .card_title {
             text-transform: uppercase;
@@ -53,6 +54,11 @@ main#school {
                 padding-inline: 1em;
                 border-radius: 5px;
                 min-width: 150px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: var(--brand-orange);
+                }
             }
         }
 
@@ -68,8 +74,11 @@ main#school {
         }
 
         #categories_cards {
+            width: 100%;
             display: flex;
             gap: 1em;
+            overflow-y: scroll;
+            // outline: 2px solid red;
 
             .card {
                 min-width: 150px;
@@ -132,6 +141,7 @@ main#school {
                 background-color: var(--card-bg);
                 border-radius: 15px;
                 padding: 0.5em;
+                min-width: 30%;
             }
 
             .outliner {

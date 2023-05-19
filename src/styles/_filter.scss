@@ -49,6 +49,12 @@ main#filter {
                 text-align: center;
                 cursor: pointer;
             }
+
+            .option.selected {
+                background-color: var(--brand-orange);
+                color: white;
+                border-color: var(--brand-orange);
+            }
         }
 
         #filter_btn {

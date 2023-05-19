@@ -1,5 +1,6 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { NavLink, Outlet, useNavigate } from 'react-router-dom'
+import { FaFilter, FaHome, FaList } from "react-icons/fa";
 
 // COMPONENTS
 import { Switch } from '@mui/material';
@@ -7,36 +8,53 @@ import { Switch } from '@mui/material';
 
 function Template() {
     const [darkMode, setDarkMode] = useState(false)
-    const [theme, setTheme] = useState('light')
 
     const toggleDarkMode = () => {
         setDarkMode(!darkMode)
-        theme === 'light' ? setTheme('dark') : setTheme('light')
+        localStorage.setItem('dark-mode', !darkMode)
     }
+
+    useEffect(()=>{
+        let isDarkMode = localStorage.getItem('dark-mode')
+        isDarkMode && setDarkMode(JSON.parse(isDarkMode))
+    },[])
 
     const navigate = useNavigate()
 
     return (
-        <div id='body' className={`theme ${theme}`}>
+        <div id='body' className={darkMode ? 'dark' : 'light'}>
             <nav>
                 <div className="container">
-                    <NavLink to={"/"}>
-                        <div id="logo">
-                            <span>school</span>Finder
-                        </div>
-                    </NavLink>
                     <ul>
                         <li>
+                            <span>
+                                <FaHome 
+                                    size={20}
+                                />
+                            </span>
                             <NavLink to={"/"}>Home</NavLink>
                         </li>
                         <li>
+                            <span>
+                                <FaFilter 
+                                    size={15}
+                                />
+                            </span>
                             <NavLink to={"/filter"}>Filter</NavLink>
                         </li>
-                        <li onClick={toggleDarkMode}>
-                            <span>Dark mode</span>
-                            <Switch size='small' onChange={toggleDarkMode} checked={darkMode}/>
+                        <li>
+                            <span>
+                                <FaList
+                                    size={15}
+                                />
+                            </span>
+                            <NavLink to={"/about"}>About</NavLink>
                         </li>
                     </ul>
+                    <div id='themeToggler' onClick={toggleDarkMode}>
+                        <span>Dark mode</span>
+                        <Switch size='small' onChange={toggleDarkMode} checked={darkMode}/>
+                    </div>
                 </div> 
             </nav>
             {<Outlet />}

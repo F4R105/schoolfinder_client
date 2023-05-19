@@ -11,6 +11,7 @@ import Home from "./pages/Home";
 import Filter from "./pages/Filter";
 import Matches from "./pages/Matches";
 import School from "./pages/School";
+import About from "./pages/About"
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,9 @@ const router = createBrowserRouter([
     },{
       path: "school",
       element: <School />,
+    },{
+      path: "about",
+      element: <About />
     }]
   },
 ]);

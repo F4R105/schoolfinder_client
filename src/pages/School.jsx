@@ -14,13 +14,16 @@ function School() {
               <div id="school_name">{school.name}</div>
               <div id="school_id">{school.school_id}</div>
             </div>
-            <button>CALL</button>
+            {
+              school.contacts.phone !== "" &&
+              <button>CALL</button>
+            }
           </div>
           {school.description !== "" && 
             <div>
               <div className="card_title">Description</div>
               <div id="description" className="card">
-                {school.desription}
+                {school.description}
               </div>
             </div>
           }
@@ -29,7 +32,7 @@ function School() {
             <div>
               <div className="card_title">School fees</div>
               <div id="school_fee" className="card">
-                TSH 1,300,000 /=
+                TSH {school.category.school_fee}/=
               </div>
             </div>
           }
@@ -80,27 +83,38 @@ function School() {
             <div className="card_title">Contacts</div>
             <div id="contacts">
               <div className="contact card">
-                <div className="contact_title">Email</div>
-                <div className="contact_detail">kajubufaraji@gmail.com</div>
+                <div className="contact_title">Phone</div>
+                <div className="contact_detail">
+                  {school.contacts.email === "" ? '-' : school.contacts.phone}
+                </div>
               </div>
               <div className="contact card">
                 <div className="contact_title">Mailbox</div>
-                <div className="contact_detail">P.O.Box 966</div>
+                <div className="contact_detail">
+                  {school.contacts.mailbox === "" ? '-' : school.contacts.mailbox}
+                </div>
               </div>
               <div className="contact card">
-                <div className="contact_title">Social</div>
-                <ul>
-                  <li>
-                    <div className="contact_detail">Twitter: https://twitter.com</div>
-                  </li>
-                  <li>
-                    <div className="contact_detail">Twitter: https://twitter.com</div>
-                  </li>
-                  <li>
-                    <div className="contact_detail">Twitter: https://twitter.com</div>
-                  </li>
-                </ul>
+                <div className="contact_title">Email</div>
+                <div className="contact_detail">
+                  {school.contacts.email === "" ? '-' : school.contacts.email}
+                </div>
               </div>
+              {
+                school.contacts.socials.length !== 0 &&
+                <>
+                  <div className="contact card">
+                    <div className="contact_title">Social</div>
+                    <ul>
+                      {school.contacts.socials.map(social => (
+                        <li>
+                          <div className="contact_detail">Twitter: https://twitter.com</div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </>
+              }
             </div>
           </div>
           <div>
@@ -112,18 +126,36 @@ function School() {
                     <div className="outliner">
                       <div className="result_year">{resultYear.year}</div>
                       <ul>
-                        <li>
-                          Division one: <span>20</span>
-                        </li>
-                        <li>
-                          Division two: <span>20</span>
-                        </li>
-                        <li>
-                          Division three: <span>20</span>
-                        </li>
-                        <li>
-                          Division four: <span>20</span>
-                        </li>
+                        {school.category.level === "primary" ? 
+                          <>
+                            <li>
+                              A: <span>{resultYear.grades.A}</span>
+                            </li>
+                            <li>
+                              B: <span>{resultYear.grades.B}</span>
+                            </li>
+                            <li>
+                              C: <span>{resultYear.grades.C}</span>
+                            </li>
+                            <li>
+                              D: <span>{resultYear.grades.D}</span>
+                            </li>
+                          </> :
+                          <>
+                            <li>
+                              Division one: <span>{resultYear.results.division_one}</span>
+                            </li>
+                            <li>
+                              Division two: <span>{resultYear.results.division_one}</span>
+                            </li>
+                            <li>
+                              Division three: <span>{resultYear.results.division_one}</span>
+                            </li>
+                            <li>
+                              Division four: <span>{resultYear.results.division_one}</span>
+                            </li>
+                          </>
+                        }
                       </ul>
                     </div>
                   </div>

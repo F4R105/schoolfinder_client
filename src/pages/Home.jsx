@@ -10,8 +10,7 @@ function Home() {
       <div className="container">
           <div id="brand">
               <div id="logo">
-                  <span>school</span>
-                  Finder
+                  <span>school</span>Finder
               </div>
               <p id="brand-descr">SchoolFinder system</p>
           </div>
@@ -23,7 +22,10 @@ function Home() {
                     onChange={(e) => setSearchQuery(e.target.value)} />
                   <button 
                     id="search_btn"
-                    onClick={() => navigate('/matches', {state: {query: searchQuery}})}
+                    onClick={() => {
+                      if(searchQuery === "") return
+                      navigate('/matches', {state: {trigger: "search", query: searchQuery}})
+                    }}
                   >
                     Search
                   </button>
@@ -35,6 +37,7 @@ function Home() {
                 Filter
               </Link>
           </div>
+          <div id="tags"></div>
       </div>
     </main>
   )

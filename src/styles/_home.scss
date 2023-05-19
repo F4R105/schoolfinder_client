@@ -5,12 +5,13 @@ main#home {
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        height: 60vh;
+        min-height: 70vh;
+        gap: 4em;
         // background-color: green;
     }
 
     #brand {
-        margin-bottom: 3em;
+        // margin-bottom: 3em;
 
         #logo {
             font-weight: bold;

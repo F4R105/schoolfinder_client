@@ -19,10 +19,11 @@ main#matches {
             justify-content: center;
             flex-direction: column;
             gap: 0.5em;
+            color: gray;
             
-            span {
-                color: gray;
-            }
+            // span {
+            //     color: gray;
+            // }
         }
 
         .loader {

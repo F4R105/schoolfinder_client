@@ -1,0 +1,32 @@
+main#about {
+    height: 100vh;
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1em;
+        flex-direction: column;
+
+        #pageTitle {
+            color: var(--text-color);
+            width: 100%;
+            text-align: center;
+        }
+
+        .detail {
+            max-width: 600px;
+        }
+
+        .detail_header {
+            color: var(--text-color);
+            display: block;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            color: gray;
+        }
+    }
+}
