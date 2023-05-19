@@ -6,8 +6,10 @@ import { FaCaretRight, FaExclamationTriangle } from "react-icons/fa";
 function Matches() {
   const {state} = useLocation()
   const navigate = useNavigate()
-  // const {query} = state
+
   const [schools, setSchools] = useState([])
+  const [error, setError] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
   const [loading, setLoading] = useState(true)
 
   const searchForSchools = async (query) => {
@@ -23,17 +25,23 @@ function Matches() {
       })
 
       const matches = res.json()
-      return matches
-    }catch(error){console.log(error.message)}
+      return {status: "success", data: matches}
+    }catch(error){
+      return {status: "error", message: error.message}
+    }
   }
 
   useEffect(()=>{
     searchForSchools(state.query)
     .then(res => {
-      console.log('matches', res)
-      setSchools(res)
-      console.log('school length is zero', schools.length)
-      setLoading(false)
+      if(res.status === "error"){
+        setError(true)
+        setErrorMessage(res.message)
+        setLoading(false)
+      }else{
+        setSchools(res.data)
+        setLoading(false)
+      }
     })
   },[])
 
@@ -52,38 +60,57 @@ function Matches() {
               />
             </div> : 
             <>
-              {schools?.length === 0 ? 
-                <div className='empty'>
-                  <FaExclamationTriangle
-                    color='gray'
-                    size={40}
-                   />
-                  <span>No school were found</span>
-                  <div id="shortcuts">
-                    <Link to="/">Search</Link>
-                    {" | "}
-                    <Link to="/filter">Filter</Link>
-                  </div>
-                </div> : 
+              {
+                error ? 
                 <>
-                  <div className="matchesDescription">{schools?.length} schools were found</div>
-                  {schools?.map(school => (
-                      <button
-                        className="school"
-                        onClick={() => navigate('/school', {state: {school}})}
-                      >
-                        <div className='school_info'>
-                          <div className="school_image">IMAGE</div>
-                          <div>
-                            <div className="school_name">{school.name}</div>
-                            <div className='school_level'>{school.category.level}</div>
-                          </div>
-                        </div>
-                        <span>
-                          <FaCaretRight />
-                        </span>
-                      </button>
-                  ))}
+                  <div className='alert error'>
+                    <FaExclamationTriangle
+                      color='#e02d2d'
+                      size={40}
+                    />
+                    <span>{errorMessage}</span>
+                    <div id="shortcuts">
+                      <Link to="/">Search</Link>
+                      {" | "}
+                      <Link to="/filter">Filter</Link>
+                    </div>
+                  </div>
+                </> :
+                <>
+                {schools.length === 0 ? 
+                    <div className='alert'>
+                      <FaExclamationTriangle
+                        color='gray'
+                        size={40}
+                      />
+                      <span>No school were found</span>
+                      <div id="shortcuts">
+                        <Link to="/">Search</Link>
+                        {" | "}
+                        <Link to="/filter">Filter</Link>
+                      </div>
+                    </div> : 
+                    <>
+                      <div className="matchesDescription">{schools?.length} schools were found</div>
+                      {schools.map(school => (
+                          <button
+                            className="school"
+                            onClick={() => navigate('/school', {state: {school}})}
+                          >
+                            <div className='school_info'>
+                              <div className="school_image">IMAGE</div>
+                              <div>
+                                <div className="school_name">{school.name}</div>
+                                <div className='school_level'>{school.category.level}</div>
+                              </div>
+                            </div>
+                            <span>
+                              <FaCaretRight />
+                            </span>
+                          </button>
+                      ))}
+                    </>
+                }
                 </>
               }
             </>

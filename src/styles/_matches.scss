@@ -12,7 +12,7 @@ main#matches {
         flex-direction: column;
         gap: 1em;
 
-        .empty {
+        .alert {
             height: 50vh;
             display: flex;
             align-items: center;
@@ -20,10 +20,10 @@ main#matches {
             flex-direction: column;
             gap: 0.5em;
             color: gray;
-            
-            // span {
-            //     color: gray;
-            // }
+        }
+
+        .alert.error span{
+            color: #e02d2d;
         }
 
         .loader {
