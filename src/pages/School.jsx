@@ -129,16 +129,16 @@ function School() {
                         {school.category.level === "primary" ? 
                           <>
                             <li>
-                              A: <span>{resultYear.grades.A}</span>
+                              Grade A: <span>{resultYear.grades.A}</span>
                             </li>
                             <li>
-                              B: <span>{resultYear.grades.B}</span>
+                              Grade B: <span>{resultYear.grades.B}</span>
                             </li>
                             <li>
-                              C: <span>{resultYear.grades.C}</span>
+                              Grade C: <span>{resultYear.grades.C}</span>
                             </li>
                             <li>
-                              D: <span>{resultYear.grades.D}</span>
+                              Grade D: <span>{resultYear.grades.D}</span>
                             </li>
                           </> :
                           <>
@@ -146,13 +146,13 @@ function School() {
                               Division one: <span>{resultYear.results.division_one}</span>
                             </li>
                             <li>
-                              Division two: <span>{resultYear.results.division_one}</span>
+                              Division two: <span>{resultYear.results.division_two}</span>
                             </li>
                             <li>
-                              Division three: <span>{resultYear.results.division_one}</span>
+                              Division three: <span>{resultYear.results.division_three}</span>
                             </li>
                             <li>
-                              Division four: <span>{resultYear.results.division_one}</span>
+                              Division four: <span>{resultYear.results.division_four}</span>
                             </li>
                           </>
                         }

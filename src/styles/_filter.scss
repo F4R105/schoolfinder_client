@@ -15,6 +15,10 @@ main#filter {
             color: var(--text-color);
             font-weight: bold;
             font-size: 2rem;
+
+            @media(max-width: 500px){
+                font-size: 1.5rem;
+            }
         }
 
         .category {
@@ -28,6 +32,10 @@ main#filter {
                 font-weight: bold;
                 font-size: 0.8rem;
                 color: gray;
+
+                @media(max-width: 500px){
+                    font-size: 0.7rem;
+                }
             }
 
             .category_options {
@@ -48,6 +56,11 @@ main#filter {
                 padding-block: 0.3em;
                 text-align: center;
                 cursor: pointer;
+
+                @media(max-width: 500px){
+                    padding-inline: 1em;
+                    padding-block: 0.2em;
+                }
             }
 
             .option.selected {

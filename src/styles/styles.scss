@@ -86,10 +86,17 @@ nav {
 
         display: flex;
         align-items: center;
-        gap: 1em;
+        gap: 0.3em;
 
         &:hover {
             color: var(--brand-orange);
+        }
+
+        .theme-icon {display: none;}
+
+        @media(max-width: 500px){
+            .theme-icon {display: block;}
+            .theme-label {display: none;}
         }
     }
 
@@ -101,6 +108,14 @@ nav {
         color: var(--text-color);
         font-size: 0.8rem;
         font-weight: bold;
+
+        @media(max-width: 500px){
+            gap: 0.2em;
+
+            .nav-icon {
+                display: none;
+            }
+        }
     }
 
     li {

@@ -39,6 +39,10 @@ main#matches {
             color: var(--text-color);
             font-weight: bold;
             font-size: 2rem;
+
+            @media(max-width: 500px){
+                font-size: 1.5rem;
+            }
         }
 
         .matchesDescription {
@@ -77,6 +81,7 @@ main#matches {
 
             .school_name {
                 color: var(--text-color);
+                text-align: left;
             }
 
             .school_level {

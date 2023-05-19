@@ -3,10 +3,13 @@ main#about {
 
     .container {
         display: flex;
-        align-items: center;
-        justify-content: center;
         gap: 1em;
         flex-direction: column;
+        padding-top: 5em;
+
+        @media(max-width: 500px){
+            font-size: 0.8rem;
+        }
 
         #pageTitle {
             color: var(--text-color);

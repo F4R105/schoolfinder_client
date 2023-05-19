@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { ThreeDots } from 'react-loader-spinner'
-import { FaCaretRight, FaExclamationTriangle } from "react-icons/fa";
+import { FaCaretRight, FaExclamationTriangle, FaSchool } from "react-icons/fa";
 
 function Matches() {
   const {state} = useLocation()
@@ -24,7 +24,7 @@ function Matches() {
         body: JSON.stringify({query})
       })
 
-      const matches = res.json()
+      const matches = await res.json()
       return {status: "success", data: matches}
     }catch(error){
       return {status: "error", message: error.message}
@@ -49,7 +49,7 @@ function Matches() {
     <main id="matches">
       <div className="container">
         <div id="schools_container">
-          <div className='pageTitle'>Matches</div>
+          {!error && <div className='pageTitle'>Matches</div>}
           {loading ? 
             <div className='loader'>
               <ThreeDots 
@@ -98,7 +98,7 @@ function Matches() {
                             onClick={() => navigate('/school', {state: {school}})}
                           >
                             <div className='school_info'>
-                              <div className="school_image">IMAGE</div>
+                              <div className="school_image"><FaSchool size={25}/></div>
                               <div>
                                 <div className="school_name">{school.name}</div>
                                 <div className='school_level'>{school.category.level}</div>

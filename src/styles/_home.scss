@@ -21,6 +21,10 @@ main#home {
             span{
                 color: var(--logo-theme);
             }
+
+            @media(max-width: 500px){
+                font-size: 1.5rem;
+            }
         }
 
         #brand-descr {
@@ -38,6 +42,7 @@ main#home {
         width: 100%;
         max-width: 500px;
         // background-color: green;
+
 
         #search {
             // outline: 2px solid blue;
@@ -92,6 +97,10 @@ main#home {
 
             &:hover {
                 background-color: var(--brand-orange);
+            }
+
+            @media(max-width: 500px){
+                display: none;
             }
         }
     }

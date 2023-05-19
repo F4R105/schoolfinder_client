@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import { NavLink, Outlet, useNavigate } from 'react-router-dom'
-import { FaFilter, FaHome, FaList } from "react-icons/fa";
+import { FaFilter, FaHome, FaList, FaSun, FaMoon } from "react-icons/fa";
 
 // COMPONENTS
 import { Switch } from '@mui/material';
@@ -30,6 +30,7 @@ function Template() {
                             <span>
                                 <FaHome 
                                     size={20}
+                                    className='nav-icon'
                                 />
                             </span>
                             <NavLink to={"/"}>Home</NavLink>
@@ -38,6 +39,7 @@ function Template() {
                             <span>
                                 <FaFilter 
                                     size={15}
+                                    className='nav-icon'
                                 />
                             </span>
                             <NavLink to={"/filter"}>Filter</NavLink>
@@ -46,13 +48,18 @@ function Template() {
                             <span>
                                 <FaList
                                     size={15}
+                                    className='nav-icon'
                                 />
                             </span>
                             <NavLink to={"/about"}>About</NavLink>
                         </li>
                     </ul>
                     <div id='themeToggler' onClick={toggleDarkMode}>
-                        <span>Dark mode</span>
+                        <span className='theme-label'>Dark mode</span>
+                        <FaMoon
+                            size={20}
+                            className='theme-icon'
+                        />
                         <Switch size='small' onChange={toggleDarkMode} checked={darkMode}/>
                     </div>
                 </div> 
