@@ -87,8 +87,8 @@ function Filter() {
                     <div className="category_title">School fees</div>
                     <div className="category_options">
                         <div 
-                            className={fee == "500" ? "option selected" : "option"} 
-                            onClick={()=>setFee("500")}>500k</div>
+                            className={fee == "1500000" ? "option selected" : "option"} 
+                            onClick={()=>setFee("1500000")}>500k</div>
                         <div 
                             className={fee == "1M" ? "option selected" : "option"} 
                             onClick={()=>setFee("1M")}>1M</div>
