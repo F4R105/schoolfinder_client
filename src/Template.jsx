@@ -27,31 +27,31 @@ function Template() {
                 <div className="container">
                     <ul>
                         <li>
-                            <span>
+                            <NavLink to={"/"}>                         
                                 <FaHome 
                                     size={20}
                                     className='nav-icon'
                                 />
-                            </span>
-                            <NavLink to={"/"}>Home</NavLink>
+                                <span>Home</span>
+                            </NavLink>
                         </li>
                         <li>
-                            <span>
+                            <NavLink to={"/filter"}>                      
                                 <FaFilter 
                                     size={15}
                                     className='nav-icon'
                                 />
-                            </span>
-                            <NavLink to={"/filter"}>Filter</NavLink>
+                                <span>Filter</span>
+                            </NavLink>
                         </li>
                         <li>
-                            <span>
+                            <NavLink to={"/about"}>
                                 <FaList
                                     size={15}
                                     className='nav-icon'
                                 />
-                            </span>
-                            <NavLink to={"/about"}>About</NavLink>
+                                <span>About</span>
+                            </NavLink>
                         </li>
                     </ul>
                     <div id='themeToggler' onClick={toggleDarkMode}>
@@ -67,8 +67,9 @@ function Template() {
             {<Outlet />}
             <footer>
                 <div className="container">
-                    <p>Copyright &copy; 2023 Faraji Kajubu</p>
+                    <p>-- -- --</p>
                     <p>Arusha Technical college</p>
+                    <p>Copyright &copy; 2023 Faraji Kajubu</p>
                 </div>
             </footer>
         </div>

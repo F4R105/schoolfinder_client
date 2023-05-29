@@ -15,7 +15,7 @@ function Matches() {
   const searchForSchools = async (query) => {
     const endpoint = state.trigger === "search" ? "search" : "filter"
     try{
-      const res = await fetch(`http://localhost:8160/${endpoint}`, {
+      const res = await fetch(`https://6e69-197-250-228-169.ngrok-free.app/${endpoint}`, {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'

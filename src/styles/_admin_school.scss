@@ -1,4 +1,4 @@
-main#school {
+main#admin_school {
     
     .container {
         padding-block: 3em;
@@ -56,7 +56,7 @@ main#school {
                 font-weight: bold;
             }
 
-            a#callBtn {
+            button#update_btn {
                 background-color: var(--brand-blue);
                 font-size: 1.2rem;
                 color: white;
@@ -73,13 +73,23 @@ main#school {
             }
         }
 
-        // #description {
+        input, textarea {
+            background-color: var(--card-bg);
+            padding: 0.5em;
+            border-radius: 5px;
+            color: var(--text-color);
+            width: 100%;
+            font-size: 1.1rem;
+            outline: 1px solid rgba(gray,.3);
+        }
 
-        // }
+        #description {max-width: 100%;}
+
 
         #school_fee {
             font-size: 1.3rem;
             width: fit-content;
+            max-width: 100%;
             color: var(--brand-orange);
             font-weight: bold;
         }
@@ -106,25 +116,32 @@ main#school {
         }
 
         #school_images {
+            width: 100%;
+            max-width: 400px;
             display: flex;
-            gap: 1em;
-            overflow-y: scroll;
-            padding-block: 1em;
-            
-            .image {
-                width: 300px;
-                flex-shrink: 0;
-                aspect-ratio: 1/1;
-                border-radius: 5px;
-                background-color: var(--brand-orange);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: white;
+            flex-direction: column;
+            gap: 5px;
 
-                @media(max-width: 500px){
-                    width: 250px;
-                }
+            .contact_title {
+                color: gray;
+            }
+
+            .contact {
+                border-radius: 0;
+            }
+
+            .contact:first-child {
+                border-radius: 10px 10px 0 0;
+            }
+
+            .contact:last-child {
+                border-radius: 0 0 10px 10px;
+            }
+
+            .image_title {
+                color: gray;
+                font-size: 0.7rem;
+                margin-bottom: 0.3em;
             }
         }
 
@@ -149,6 +166,14 @@ main#school {
 
             .contact:last-child {
                 border-radius: 0 0 10px 10px;
+            }
+
+            #social_media_links {
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+
+                .social_media_title{color: gray; font-size: 0.7rem;}
             }
         }
 

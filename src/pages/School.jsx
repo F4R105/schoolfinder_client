@@ -16,7 +16,7 @@ function School() {
             </div>
             {
               school.contacts.phone !== "" &&
-              <button>CALL</button>
+              <a id='callBtn' href={`tel:${school.contacts.phone}`}>CALL</a>
             }
           </div>
           {school.description !== "" && 
@@ -85,7 +85,7 @@ function School() {
               <div className="contact card">
                 <div className="contact_title">Phone</div>
                 <div className="contact_detail">
-                  {school.contacts.email === "" ? '-' : school.contacts.phone}
+                  {school.contacts.phone === "" ? '-' : school.contacts.phone}
                 </div>
               </div>
               <div className="contact card">
