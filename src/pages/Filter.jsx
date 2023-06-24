@@ -83,7 +83,7 @@ function Filter() {
                             onClick={()=>setOccupation("boarding")}>Boarding</div>
                     </div>
                 </div>
-                <div className="category">
+                {/* <div className="category">
                     <div className="category_title">School fees</div>
                     <div className="category_options">
                         <div 
@@ -99,7 +99,7 @@ function Filter() {
                             className={fee == "3M" ? "option selected" : "option"} 
                             onClick={()=>setFee("3M")}>3M</div>
                     </div>
-                </div>
+                </div> */}
                 <button 
                     id="filter_btn"
                     onClick={
