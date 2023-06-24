@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom'
 function School() {
   const {state} = useLocation()
   const {school} = state
+  console.log(school)
 
   return (
     <main id="school">
@@ -140,6 +141,9 @@ function School() {
                             <li>
                               Grade D: <span>{resultYear.grades.D}</span>
                             </li>
+                            <li>
+                              Grade F: <span>{resultYear.grades.E}</span>
+                            </li>
                           </> :
                           <>
                             <li>
@@ -153,6 +157,9 @@ function School() {
                             </li>
                             <li>
                               Division four: <span>{resultYear.results.division_four}</span>
+                            </li>
+                            <li>
+                              Fail: <span>{resultYear.results.fail}</span>
                             </li>
                           </>
                         }

@@ -1,0 +1,19 @@
+{
+    "name": "School finder",
+    "short_name": "School finder",
+    "start_url": ".",
+    "background_color": "#543badff",
+    "theme_color": "#543badff",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "/icon.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },{
+            "src": "/school-finder-icon.png",
+            "sizes": "51x51",
+            "type": "image/svg"
+        }
+    ]
+}

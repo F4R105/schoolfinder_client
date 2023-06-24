@@ -102,7 +102,10 @@ function Filter() {
                 </div>
                 <button 
                     id="filter_btn"
-                    onClick={() => navigate('/matches', {state: {trigger: "filter", query: {level, ownership, gender, religion, occupation, fee}}})}
+                    onClick={
+                        () => navigate('/matches', {state: {trigger: "filter", query: {level, ownership, gender, religion, occupation, fee}}})
+                        // console.log({level, ownership, gender, religion, occupation, fee})
+                    }
                 >
                     Filter
                 </button>

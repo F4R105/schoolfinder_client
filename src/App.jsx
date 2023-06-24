@@ -14,9 +14,6 @@ import School from "./pages/School";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 
-import Admin_Login from "./pages/Admin_Login";
-import Admin_School from "./pages/Admin_School";
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -37,16 +34,10 @@ const router = createBrowserRouter([
       path: "about",
       element: <About />
     },{
-      path: "admin_school",
-      element: <Admin_School />
-    },{
       path: "*",
       element: <NotFound />
     }]
-  },{
-    path: "/admin",
-    element: <Admin_Login />
-  },
+  }
 ]);
 
 function App() {

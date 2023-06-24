@@ -15,7 +15,8 @@ function Matches() {
   const searchForSchools = async (query) => {
     const endpoint = state.trigger === "search" ? "search" : "filter"
     try{
-      const res = await fetch(`https://6e69-197-250-228-169.ngrok-free.app/${endpoint}`, {
+      // const res = await fetch(`https://6e69-197-250-228-169.ngrok-free.app/${endpoint}`, {
+      const res = await fetch(`https://schoolfinder-api.onrender.com/${endpoint}`, {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'

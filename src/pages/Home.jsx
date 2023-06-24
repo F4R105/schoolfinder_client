@@ -1,10 +1,31 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Link, useNavigate} from 'react-router-dom'
 
 
 function Home() {
   const navigate = useNavigate()
   const [searchQuery, setSearchQuery] = useState('')
+  const inputElement = useRef()
+
+  const Search = () => {
+    if(searchQuery === "") return
+    navigate('/matches', {state: {trigger: "search", query: searchQuery}})
+  }
+
+  const handleFocus = () => {
+      document.addEventListener('keyup', (e)=>{
+        if(e.key === "Enter") {
+          console.log(
+            'enter pressed'
+          )
+          Search()
+        }
+      })
+  }
+
+  useEffect(()=>{
+    inputElement.current.focus()
+  },[])
   
   return (
   <main id="home">
@@ -20,13 +41,12 @@ function Home() {
                   <input 
                     type="text" 
                     value={searchQuery}
+                    ref={inputElement}
+                    onFocus={handleFocus}
                     onChange={(e) => setSearchQuery(e.target.value)} />
                   <button 
                     id="search_btn"
-                    onClick={() => {
-                      if(searchQuery === "") return
-                      navigate('/matches', {state: {trigger: "search", query: searchQuery}})
-                    }}
+                    onClick={() => Search()}
                   >
                     Search
                   </button>
