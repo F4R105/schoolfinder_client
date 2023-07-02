@@ -72,14 +72,28 @@ function School() {
               }
             </div>
           </div>
-          <div>
-            <div className="card_title">Images</div>
-            <div id="school_images">
-              <div className='image'>NO IMAGE</div>
-              <div className='image'>NO IMAGE</div>
-              <div className='image'>NO IMAGE</div>
+          {school.images.length === 0 ?
+            <div>
+              <div className="card_title">Images</div>
+              <div id="school_images">
+                <div className='image'>NO IMAGE</div>
+                <div className='image'>NO IMAGE</div>
+                <div className='image'>NO IMAGE</div>
+              </div>
             </div>
-          </div>
+          :
+            <div>
+              <div className="card_title">Images</div>
+              <div id="school_images">
+                {school.images.map(imageurl => (
+                  <div className='image'>
+                    <img src={imageurl} alt="School image" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          }
+
           <div>
             <div className="card_title">Contacts</div>
             <div id="contacts">
